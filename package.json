@@ -1,0 +1,29 @@
+{
+  "name": "nenv",
+  "description": "Utility for mananging node development environments",
+  "version": "0.1.0",
+  "author": "muji <noop@xpm.io>",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/socialally/nenv.git"
+  },
+  "keywords": [
+    "utility",
+    "environment",
+    "NODE_ENV"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "~2.2.0",
+    "istanbul": "~0.3.13",
+    "mocha": "~2.2.4"
+  },
+  "engine": [
+    "node >= 0.10.11"
+  ],
+  "scripts": {
+    "test": "NODE_ENV=test istanbul cover --root lib _mocha -- test/spec",
+    "docs": "groc ./lib/**/*.js"
+  }
+}

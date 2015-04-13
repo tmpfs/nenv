@@ -1,0 +1,9 @@
+.DS_Store
+/coverage
+/target
+/node_modules
+/doc
+*.log
+*.pid
+*.bak
+*.tgz

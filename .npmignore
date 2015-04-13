@@ -1,0 +1,9 @@
+/coverage
+/target
+/package
+/perf
+/doc
+*.log
+*.pid
+*.bak
+*.tgz
