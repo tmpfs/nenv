@@ -23,7 +23,32 @@
     "node >= 0.10.11"
   ],
   "scripts": {
-    "test": "NODE_ENV=test istanbul cover --root lib _mocha -- test/spec",
-    "docs": "groc ./lib/**/*.js"
+    "docs": "npm run readme",
+    "readme": "mdp --force -v",
+    "test": "NODE_ENV=test istanbul cover --root lib _mocha -- test/spec"
+  },
+  "mdp": {
+    "title": "nenv",
+    "pedantic": true,
+    "include": "doc/readme",
+    "require": "lib",
+    "links": "links.md",
+    "toc": "Table of Contents",
+    "base": "https://github.com/socialally/nenv",
+    "partial": [
+      {
+        "inc": [
+          "introduction.md",
+          "install.md",
+          "usage.md"
+        ]
+      },
+      {
+        "inc": [
+          "developer.md",
+          "license.md"
+        ]
+      }
+    ]
   }
 }
