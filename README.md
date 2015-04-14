@@ -10,6 +10,8 @@ Table of Contents
     * [env.defined](#envdefined)
     * [env.get()](#envget)
     * [env.set(val)](#envsetval)
+    * [env.keys](#envkeys)
+    * [env.map](#envmap)
     * [env.defaults](#envdefaults)
     * [env.jsonify()](#envjsonify)
     * [Environments](#environments)
@@ -79,6 +81,14 @@ Get the *current* value of the environment, the default implementation returns `
 ### env.set(val)
 
 Set the *current* value of the environment, the default implementation returns `false` if the supplied value is not a known environment alias otherwise a function that may be called to revert to the *previous* value.
+
+### env.keys
+
+Array of environment keys.
+
+### env.map
+
+Map of environment keys to arrays of string aliases for the environment.
 
 ### env.defaults
 
