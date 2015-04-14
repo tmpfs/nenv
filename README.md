@@ -34,10 +34,6 @@ npm i nenv --save
 ## Usage
 
 ```javascript
-function nenv([environments, get, set])
-```
-
-```javascript
 var env = require('nenv')();
 if(!env.defined) {
   // do something when no environment was specified
@@ -47,6 +43,10 @@ if(!env.defined) {
 }else if(env.test) {
   // do something for test environment
 }
+```
+
+```javascript
+function nenv([environments, get, set])
 ```
 
 * `environments`: Array or object of custom environments, if not specified the `defaults` are used.
