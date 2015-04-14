@@ -41,7 +41,7 @@ describe('nenv: ', function() {
   });
 
   it('should use extract function', function(done) {
-    var env = nenv(nenv.extract);
+    var env = nenv(nenv.dget);
     defaults(env);
     done();
   });
@@ -80,6 +80,30 @@ describe('nenv: ', function() {
     expect(env.map.live).to.eql(['live']);
 
     expect(env('t')).to.eql(env.TEST);
+    done();
+  });
+
+  it('should set and revert environment', function(done) {
+    var env = nenv();
+    defaults(env);
+    done();
+  });
+
+  it('should set and revert environment', function(done) {
+    var env = nenv();
+    expect(env.get()).to.eql(env.TEST);
+    var revert = env.set(env.DEVEL);
+    expect(revert).to.be.a('function');
+    expect(env.get()).to.eql(env.DEVEL);
+
+    // original value is unchanged
+    expect(env.value).to.eql(env.TEST);
+
+    // revert to previous value
+    revert();
+
+    expect(env.get()).to.eql(env.TEST);
+
     done();
   });
 

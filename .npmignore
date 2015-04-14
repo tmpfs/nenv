@@ -1,8 +1,8 @@
 /coverage
 /target
 /package
-/perf
 /doc
+/test
 *.log
 *.pid
 *.bak
