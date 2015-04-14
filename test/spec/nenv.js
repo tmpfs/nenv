@@ -107,4 +107,13 @@ describe('nenv: ', function() {
     done();
   });
 
+  it('should refuse to set invalid environment', function(done) {
+    var env = nenv();
+    expect(env.get()).to.eql(env.TEST);
+    var revert = env.set('unknown');
+    expect(revert).to.eql(false);
+    expect(env.get()).to.eql(env.TEST);
+    done();
+  });
+
 });
