@@ -65,7 +65,7 @@ function nenv([environments, get, set])
 
 ### env([value])
 
-Determines if an environment value is valid. Returns `false` if the supplied value is invalid or the string key for the environment if valid.
+Determines if an environment value is valid. Returns `false` if the supplied value is invalid or the string key for the environment if the value is a known environment alias.
 
 If no value is supplied then `env.value` is used which allows testing whether the default value is valid by calling with no arguments.
 
