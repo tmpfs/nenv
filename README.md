@@ -11,6 +11,7 @@ Table of Contents
     * [env.get()](#envget)
     * [env.set(val)](#envsetval)
     * [env.defaults](#envdefaults)
+    * [env.jsonify()](#envjsonify)
     * [Environments](#environments)
   * [Example](#example)
   * [Developer](#developer)
@@ -55,7 +56,7 @@ function nenv([environments, get, set])
 
 ### env([value])
 
-Determines if an environment value is valid. Returns `false` is the supplied value is invalid or the string key for the environment if valid.
+Determines if an environment value is valid. Returns `false` if the supplied value is invalid or the string key for the environment if valid.
 
 If no value is supplied then `env.value` is used which allows testing whether the default value is valid by calling with no arguments.
 
@@ -87,6 +88,10 @@ Default values to use.
 ['test', 'devel', 'stage', 'production'];
 ```
 
+### env.jsonify()
+
+Return an object suitable for passing to `JSON.stringify`.
+
 ### Environments
 
 Pass an object or array to define your available environments:
@@ -98,6 +103,8 @@ console.log(env.keys);
 ```
 
 ## Example
+
+See [defaults.js](https://github.com/socialally/nenv/blob/master/defaults.js).
 
 ```javascript
 var env = require('./')()

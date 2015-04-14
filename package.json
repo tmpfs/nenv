@@ -46,6 +46,7 @@
       },
       {
         "title": "Example",
+        "text": "See [defaults.js](/defaults.js).",
         "inc": "../../defaults.js",
         "type": "code",
         "language": "javascript"
