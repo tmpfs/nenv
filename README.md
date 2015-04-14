@@ -6,6 +6,8 @@ Table of Contents
   * [Usage](#usage)
     * [env([value])](#envvalue)
     * [env.value](#envvalue)
+    * [env.valid](#envvalid)
+    * [env.defined](#envdefined)
     * [env.get()](#envget)
     * [env.set(val)](#envsetval)
     * [env.defaults](#envdefaults)
@@ -37,8 +39,11 @@ function nenv([environments, get, set])
 
 ```javascript
 var env = require('nenv')();
-if(!env()) {
-  // do something when the environment is invalid
+if(!env.defined) {
+  // do something when no environment was specified
+  // maybe: env.set(env.DEVEL) or whichever default you want
+}else if(!env()) {
+  // do something when the specified environment is invalid
 }else if(env.test) {
   // do something for test environment
 }
@@ -57,6 +62,14 @@ If no value is supplied then `env.value` is used which allows testing whether th
 ### env.value
 
 The value returned from `get()` when `nenv()` was called, the initial environment value.
+
+### env.valid
+
+Boolean that determines whether `env.value` is a recognised environment.
+
+### env.defined
+
+Determines whether an initial value (`env.value`) was defined.
 
 ### env.get()
 
@@ -102,6 +115,7 @@ Executed with `NODE_ENV=devel`, yields:
   "PRODUCTION": "production",
   "value": "devel",
   "valid": true,
+  "defined": true,
   "map": {
     "test": [
       "test"
