@@ -4,7 +4,6 @@ Table of Contents
 * [nenv](#nenv)
   * [Install](#install)
   * [Usage](#usage)
-  * [Options](#options)
   * [Developer](#developer)
     * [Test](#test)
     * [Readme](#readme)
@@ -26,12 +25,22 @@ npm i nenv --save
 ## Usage
 
 ```javascript
-...
+var nenv = require('nenv')
+  , env = nenv();
+
+// environment value fixed at creation time
+console.log(env.value);
+
+// get current value of environment
+console.log(env.get());
+
+// check environment is valid
+console.log(env(env.TEST));
+console.log(env(env.DEVEL));
+console.log(env(env.STAGE));
+console.log(env(env.PRODUCTION));
+console.log(env('unknown'));
 ```
-
-## Options
-
-* `cache`: A boolean used to control object cache.
 
 ## Developer
 
