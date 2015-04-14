@@ -87,33 +87,46 @@ console.log(env.keys);
 ## Example
 
 ```javascript
-var nenv = require('./')
-  , env = nenv();
-
-// environment value fixed at creation time
-console.log(env.value);
-
-// get current value of environment
-console.log(env.get());
-
-// check environment is valid
-console.log(env(env.TEST));
-console.log(env(env.DEVEL));
-console.log(env(env.STAGE));
-console.log(env(env.PRODUCTION));
-console.log(env('unknown'));
-
-// set current value
-var revert = env.set(env.DEVEL);
-console.log(env.get());           // devel
-revert();
-console.log(env.get());           // reverted to previous value
+var env = require('./')()
+  , str = JSON.stringify(env.jsonify(), undefined, 2);
+process.stdout.write(str);
 ```
 
-Run with:
+Executed with `NODE_ENV=devel`, yields:
 
-```
-NODE_ENV=stage node example.js
+```json
+{
+  "TEST": "test",
+  "DEVEL": "devel",
+  "STAGE": "stage",
+  "PRODUCTION": "production",
+  "value": "devel",
+  "valid": true,
+  "map": {
+    "test": [
+      "test"
+    ],
+    "devel": [
+      "devel"
+    ],
+    "stage": [
+      "stage"
+    ],
+    "production": [
+      "production"
+    ]
+  },
+  "keys": [
+    "test",
+    "devel",
+    "stage",
+    "production"
+  ],
+  "test": false,
+  "devel": true,
+  "stage": false,
+  "production": false
+}
 ```
 
 ## Developer

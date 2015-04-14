@@ -46,13 +46,18 @@
       },
       {
         "title": "Example",
-        "inc": "../../example.js",
+        "inc": "../../defaults.js",
         "type": "code",
         "language": "javascript"
       },
       {
+        "text": "Executed with `NODE_ENV=devel`, yields:",
+        "bin": "NODE_ENV=devel node defaults.js",
+        "type": "code",
+        "language": "json"
+      },
+      {
         "inc": [
-          "example.md",
           "developer.md",
           "license.md"
         ]
