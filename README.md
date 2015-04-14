@@ -36,8 +36,7 @@ function nenv([environments, get, set])
 ```
 
 ```javascript
-var nenv = require('nenv')
-  , env = nenv();
+var env = require('nenv')();
 if(!env()) {
   // do something when the environment is invalid
 }else if(env.test) {
@@ -51,7 +50,7 @@ if(!env()) {
 
 ### env([value])
 
-Determines if an environment value is valid. Returns `false` is the supplied value is invalid of the string key for the environment if valid.
+Determines if an environment value is valid. Returns `false` is the supplied value is invalid or the string key for the environment if valid.
 
 If no value is supplied then `env.value` is used which allows testing whether the default value is valid by calling with no arguments.
 
@@ -69,7 +68,7 @@ Set the *current* value of the environment, the default implementation returns `
 
 ### env.defaults
 
-Array of default values to use.
+Default values to use.
 
 ```javascript
 ['test', 'devel', 'stage', 'production'];

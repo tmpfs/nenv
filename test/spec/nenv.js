@@ -36,6 +36,9 @@ function defaults(env) {
   expect(env.devel).to.eql(false);
   expect(env.stage).to.eql(false);
   expect(env.production).to.eql(false);
+
+  // check jsonify object conversion doesn't generate any errors
+  expect(JSON.stringify(env.jsonify())).to.be.a('string');
 }
 
 describe('nenv: ', function() {
@@ -98,9 +101,11 @@ describe('nenv: ', function() {
   it('should set and revert environment', function(done) {
     var env = nenv();
     expect(env.get()).to.eql(env.TEST);
+    expect(env.test).to.eql(true);
     var revert = env.set(env.DEVEL);
     expect(revert).to.be.a('function');
     expect(env.get()).to.eql(env.DEVEL);
+    expect(env.devel).to.eql(true);
 
     // original value is unchanged
     expect(env.value).to.eql(env.TEST);
@@ -109,6 +114,7 @@ describe('nenv: ', function() {
     revert();
 
     expect(env.get()).to.eql(env.TEST);
+    expect(env.test).to.eql(true);
 
     done();
   });
