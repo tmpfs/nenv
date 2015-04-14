@@ -3,6 +3,8 @@
 /package
 /doc
 /test
+/index.js
+/defaults.js
 *.log
 *.pid
 *.bak
