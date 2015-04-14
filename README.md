@@ -8,6 +8,7 @@ Table of Contents
     * [env.value](#envvalue)
     * [env.get()](#envget)
     * [env.set(val)](#envsetval)
+    * [env.defaults](#envdefaults)
     * [Environments](#environments)
   * [Example](#example)
   * [Developer](#developer)
@@ -65,6 +66,14 @@ Get the *current* value of the environment, the default implementation returns `
 ### env.set(val)
 
 Set the *current* value of the environment, the default implementation returns `false` if the supplied value is not a known environment alias otherwise a function that may be called to revert to the *previous* value.
+
+### env.defaults
+
+Array of default values to use.
+
+```javascript
+['test', 'devel', 'stage', 'production'];
+```
 
 ### Environments
 

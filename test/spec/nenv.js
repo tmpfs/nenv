@@ -30,6 +30,12 @@ function defaults(env) {
 
   // check invalid value
   expect(env('unknown')).to.eql(false);
+
+  // boolean property aliases
+  expect(env.test).to.eql(true);
+  expect(env.devel).to.eql(false);
+  expect(env.stage).to.eql(false);
+  expect(env.production).to.eql(false);
 }
 
 describe('nenv: ', function() {
