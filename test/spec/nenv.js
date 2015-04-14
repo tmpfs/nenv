@@ -46,6 +46,25 @@ describe('nenv: ', function() {
   it('should use default options', function(done) {
     var env = nenv();
     defaults(env);
+
+    // subsequent calls use the same instance by default
+    // with no args
+    var cached = nenv();
+    expect(cached).to.equal(env);
+
+    // bust the cache, but use defaults
+    var newenv = nenv(true);
+    expect(newenv).to.not.equal(env);
+
+    // create a new env with different environments
+    // bypassing the cache
+    var modenv = nenv(['deploy']);
+    expect(modenv).to.not.equal(env);
+    expect(modenv.DEPLOY).to.eql('deploy');
+    expect(modenv.deploy).to.eql(false);
+    expect(modenv.keys).to.eql(['deploy']);
+    expect(modenv.map.deploy).to.eql(['deploy']);
+
     done();
   });
 
