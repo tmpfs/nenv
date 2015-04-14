@@ -4,6 +4,12 @@ Table of Contents
 * [nenv](#nenv)
   * [Install](#install)
   * [Usage](#usage)
+    * [env([value])](#envvalue)
+    * [env.value](#envvalue)
+    * [env.get()](#envget)
+    * [env.set(val)](#envsetval)
+    * [Environments](#environments)
+  * [Example](#example)
   * [Developer](#developer)
     * [Test](#test)
     * [Readme](#readme)
@@ -23,6 +29,54 @@ npm i nenv --save
 ```
 
 ## Usage
+
+```javascript
+function nenv([environments, get, set])
+```
+
+```javascript
+var nenv = require('nenv')
+  , env = nenv();
+if(!env()) {
+  // do something when the environment is invalid
+}else if(env.test) {
+  // do something for test environment
+}
+```
+
+* `environments`: Array or object of custom environments, if not specified the `defaults` are used.
+* `get`: A custom function for getting the environment value (optional).
+* `set`: A custom function for setting the environment value (optional).
+
+### env([value])
+
+Determines if an environment value is valid. Returns `false` is the supplied value is invalid of the string key for the environment if valid.
+
+If no value is supplied then `env.value` is used which allows testing whether the default value is valid by calling with no arguments.
+
+### env.value
+
+The value returned from `get()` when `nenv()` was called, the initial environment value.
+
+### env.get()
+
+Get the *current* value of the environment, the default implementation returns `process.env.NODE_ENV`.
+
+### env.set(val)
+
+Set the *current* value of the environment, the default implementation returns `false` if the supplied value is not a known environment alias otherwise a function that may be called to revert to the *previous* value.
+
+### Environments
+
+Pass an object or array to define your available environments:
+
+```javascript
+var nenv = require('nenv')
+  , env = nenv({production: ['production', 'pro'], dev: 'dev', test: 'test'});
+console.log(env.keys);
+```
+
+## Example
 
 ```javascript
 var nenv = require('./')

@@ -40,18 +40,19 @@
       {
         "inc": [
           "introduction.md",
-          "install.md"
+          "install.md",
+          "usage.md"
         ]
       },
       {
-        "title": "Usage",
+        "title": "Example",
         "inc": "../../example.js",
         "type": "code",
         "language": "javascript"
       },
       {
         "inc": [
-          "usage.md",
+          "example.md",
           "developer.md",
           "license.md"
         ]
