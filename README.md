@@ -25,7 +25,7 @@ npm i nenv --save
 ## Usage
 
 ```javascript
-var nenv = require('nenv')
+var nenv = require('./')
   , env = nenv();
 
 // environment value fixed at creation time
@@ -40,6 +40,18 @@ console.log(env(env.DEVEL));
 console.log(env(env.STAGE));
 console.log(env(env.PRODUCTION));
 console.log(env('unknown'));
+
+// set current value
+var revert = env.set(env.DEVEL);
+console.log(env.get());           // devel
+revert();
+console.log(env.get());           // reverted to previous value
+```
+
+Run with:
+
+```
+NODE_ENV=stage node example.js
 ```
 
 ## Developer
