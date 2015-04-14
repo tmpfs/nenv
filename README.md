@@ -4,6 +4,7 @@ Table of Contents
 * [nenv](#nenv)
   * [Install](#install)
   * [Usage](#usage)
+  * [API](#api)
     * [env([value])](#envvalue)
     * [env.value](#envvalue)
     * [env.valid](#envvalid)
@@ -49,6 +50,8 @@ if(!env.defined) {
   // do something for test environment
 }
 ```
+
+## API
 
 ```javascript
 function nenv([environments, get, set])

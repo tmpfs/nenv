@@ -41,7 +41,8 @@
         "inc": [
           "introduction.md",
           "install.md",
-          "usage.md"
+          "usage.md",
+          "api.md"
         ]
       },
       {
