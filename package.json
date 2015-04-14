@@ -1,7 +1,7 @@
 {
   "name": "nenv",
   "description": "Utility for managing node development environments",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "muji <noop@xpm.io>",
   "main": "lib/index.js",
   "repository": {
