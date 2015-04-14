@@ -12,8 +12,10 @@ Table of Contents
     * [env.set(val)](#envsetval)
     * [env.keys](#envkeys)
     * [env.map](#envmap)
-    * [env.defaults](#envdefaults)
     * [env.jsonify()](#envjsonify)
+    * [nenv.defaults](#nenvdefaults)
+    * [nenv.get](#nenvget)
+    * [nenv.set](#nenvset)
     * [Environments](#environments)
   * [Example](#example)
   * [Developer](#developer)
@@ -90,7 +92,11 @@ Array of environment keys.
 
 Map of environment keys to arrays of string aliases for the environment.
 
-### env.defaults
+### env.jsonify()
+
+Return an object suitable for passing to `JSON.stringify`.
+
+### nenv.defaults
 
 Default values to use.
 
@@ -98,9 +104,13 @@ Default values to use.
 ['test', 'devel', 'stage', 'production'];
 ```
 
-### env.jsonify()
+### nenv.get
 
-Return an object suitable for passing to `JSON.stringify`.
+Default `get` function.
+
+### nenv.set
+
+Default `set` function.
 
 ### Environments
 
