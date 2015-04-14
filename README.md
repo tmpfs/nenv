@@ -15,9 +15,11 @@ Table of Contents
     * [env.map](#envmap)
     * [env.jsonify()](#envjsonify)
     * [nenv.defaults](#nenvdefaults)
+    * [nenv.cache](#nenvcache)
     * [nenv.get](#nenvget)
     * [nenv.set](#nenvset)
-    * [Environments](#environments)
+  * [Environments](#environments)
+  * [Getter](#getter)
   * [Example](#example)
   * [Developer](#developer)
     * [Test](#test)
@@ -107,6 +109,22 @@ Default values to use.
 ['test', 'devel', 'stage', 'production'];
 ```
 
+### nenv.cache
+
+A cache created the first time `nenv()` was invoked. Typically you would always want to share the same environment query:
+
+```javascript
+var nenv = require('nenv')
+  , env = nenv()
+  , newenv = nenv()
+  // bypass cache and get a new query function using defaults
+  , altenv = nenv(true);
+console.log(env === newenv);
+console.log(env === altenv);
+```
+
+You can bypass the cached instance by passing arguments to `nenv()` or alternatively you could delete `nenv.cache` to force a new query to be created.
+
 ### nenv.get
 
 Default `get` function.
@@ -115,14 +133,38 @@ Default `get` function.
 
 Default `set` function.
 
-### Environments
+## Environments
 
-Pass an object or array to define your available environments:
+Pass an object or array to define your available environments. Passing an object allows specifying multiple keys as aliases for the environment, useful to alias shortcuts for longer environment identifiers.
 
 ```javascript
-var nenv = require('nenv')
-  , env = nenv({production: ['production', 'pro'], dev: 'dev', test: 'test'});
-console.log(env.keys);
+var nenv = require('nenv');
+console.dir(nenv(['test', 'dev', 'stage']));
+console.dir(nenv({production: ['production', 'pro'], dev: 'dev', test: 'test'}));
+```
+
+## Getter
+
+Use a fallback value by supplying a `get` function:
+
+```javascript
+var nenv = require('nenv');
+function fallback() {
+  return process.env.NODE_ENV || this.PRODUCTION;
+}
+var env = nenv(fallback);
+console.dir(env);
+```
+
+Or apply override logic to prefer another variable:
+
+```javascript
+var nenv = require('nenv');
+function override() {
+  return process.env.ENV || process.env.NODE_ENV;
+}
+var env = nenv(override);
+console.dir(env);
 ```
 
 ## Example
