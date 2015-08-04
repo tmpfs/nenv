@@ -1,7 +1,7 @@
 Table of Contents
 =================
 
-* [nenv](#nenv)
+* [Node Environment (NODE_ENV)](#node-environment-node_env)
   * [Install](#install)
   * [Usage](#usage)
   * [API](#api)
@@ -26,8 +26,8 @@ Table of Contents
     * [Readme](#readme)
   * [License](#license)
 
-nenv
-====
+Node Environment (NODE_ENV)
+===========================
 
 Utility for mananging node development environments.
 
@@ -186,6 +186,7 @@ Executed with `NODE_ENV=devel`, yields:
   "STAGE": "stage",
   "PRODUCTION": "production",
   "value": "devel",
+  "current": "devel",
   "valid": true,
   "defined": true,
   "map": {
