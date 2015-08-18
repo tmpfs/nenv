@@ -2,6 +2,7 @@
   "name": "nenv",
   "description": "Node development environment manager",
   "version": "0.4.0",
+  "stability": "stable",
   "author": "muji <noop@xpm.io>",
   "main": "lib/index.js",
   "repository": {
@@ -34,6 +35,10 @@
     "toc": "Table of Contents",
     "base": "https://github.com/socialally/nenv",
     "partial": [
+      {
+        "ref": "stability",
+        "format": "> `Stability: %s`"
+      },
       {
         "inc": [
           "introduction.md",

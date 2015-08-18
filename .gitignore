@@ -2,7 +2,6 @@
 /coverage
 /target
 /node_modules
-/doc
 *.log
 *.pid
 *.bak
