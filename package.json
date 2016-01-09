@@ -2,12 +2,12 @@
   "name": "nenv",
   "description": "Node development environment manager",
   "version": "0.5.1",
-  "stability": "stable",
   "author": "muji <noop@xpm.io>",
   "main": "lib/index.js",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/socialally/nenv.git"
+    "url": "git://github.com/tmpfs/nenv.git"
   },
   "keywords": [
     "utility",
@@ -16,6 +16,7 @@
   ],
   "devDependencies": {
     "chai": "~3.2.0",
+    "coveralls": "~2.11.6",
     "istanbul": "~0.3.17",
     "mocha": "~2.2.5"
   },
@@ -33,12 +34,8 @@
     "require": "lib",
     "links": "links.md",
     "toc": "Table of Contents",
-    "base": "https://github.com/socialally/nenv",
+    "base": "https://github.com/tmpfs/nenv",
     "partial": [
-      {
-        "ref": "stability",
-        "format": "> `Stability: %s`"
-      },
       {
         "inc": [
           "introduction.md",
