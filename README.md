@@ -23,6 +23,7 @@ Table of Contents
   * [Example](#example)
   * [Developer](#developer)
     * [Test](#test)
+    * [Cover](#cover)
     * [Readme](#readme)
   * [License](#license)
 
@@ -226,6 +227,14 @@ Run the test specifications:
 
 ```
 npm test
+```
+
+### Cover
+
+Run the test specifications and generate code coverage:
+
+```
+npm run cover
 ```
 
 ### Readme
