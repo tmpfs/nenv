@@ -29,6 +29,10 @@ Table of Contents
 Node Environment (NODE_ENV)
 ===========================
 
+[<img src="https://travis-ci.org/tmpfs/nenv.svg" alt="Build Status">](https://travis-ci.org/tmpfs/nenv)
+[<img src="http://img.shields.io/npm/v/nenv.svg" alt="npm version">](https://npmjs.org/package/nenv)
+[<img src="https://coveralls.io/repos/tmpfs/nenv/badge.svg?branch=master&service=github&v=1" alt="Coverage Status">](https://coveralls.io/github/tmpfs/nenv?branch=master).
+
 Utility for mananging node development environments.
 
 ## Install
