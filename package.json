@@ -21,6 +21,7 @@
     "mocha": "~2.2.5"
   },
   "scripts": {
+    "lint": "jshint . && jscs .",
     "clean": "rm -rf coverage target",
     "docs": "npm run readme",
     "readme": "mdp --force -v",
