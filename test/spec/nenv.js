@@ -138,6 +138,15 @@ describe('nenv: ', function() {
     done();
   });
 
+  it('should set debug flag', function(done) {
+    process.env.DEBUG = '1';
+    delete nenv.cache;
+    var env = nenv();
+    expect(env.debug).to.eql(true);
+    delete process.env.DEBUG;
+    done();
+  });
+
   it('should refuse to set invalid environment', function(done) {
     var env = nenv();
     expect(env.get()).to.eql(env.TEST);
