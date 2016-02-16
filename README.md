@@ -52,7 +52,8 @@ if(!env.defined) {
   // maybe: env.set(env.DEVEL) or whichever default you want
 }else if(!env.valid) {
   // do something when the specified environment is invalid
-}else if(env.test) {
+  // and the debug flag is not set
+}else if(env.test && !env.debug) {
   // do something for test environment
 }
 ```
@@ -66,6 +67,11 @@ function nenv([environments, get, set])
 * `environments`: Array or object of custom environments, if not specified the `defaults` are used.
 * `get`: A custom function for getting the environment value (optional).
 * `set`: A custom function for setting the environment value (optional).
+* `dbg`: A string for the debug flag environment variable, default is `DEBUG`.
+
+The returned query object maintains a special `debug` property which is a boolean indicating whether the `DEBUG` environment variable has been set, if this conflicts with an environment name either change the `environments` or `dbg` options.
+
+The query object is maintained in a `cache` and will be returned on subsequenct calls which is typically desirable, if you need a fresh query `delete nenv.cache`.
 
 ### env([value])
 
@@ -189,6 +195,7 @@ Executed with `NODE_ENV=devel`, yields:
   "DEVEL": "devel",
   "STAGE": "stage",
   "PRODUCTION": "production",
+  "debug": false,
   "value": "devel",
   "current": "devel",
   "valid": true,

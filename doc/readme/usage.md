@@ -7,7 +7,8 @@ if(!env.defined) {
   // maybe: env.set(env.DEVEL) or whichever default you want
 }else if(!env.valid) {
   // do something when the specified environment is invalid
-}else if(env.test) {
+  // and the debug flag is not set
+}else if(env.test && !env.debug) {
   // do something for test environment
 }
 ```

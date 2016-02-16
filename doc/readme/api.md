@@ -7,6 +7,11 @@ function nenv([environments, get, set])
 * `environments`: Array or object of custom environments, if not specified the `defaults` are used.
 * `get`: A custom function for getting the environment value (optional).
 * `set`: A custom function for setting the environment value (optional).
+* `dbg`: A string for the debug flag environment variable, default is `DEBUG`.
+
+The returned query object maintains a special `debug` property which is a boolean indicating whether the `DEBUG` environment variable has been set, if this conflicts with an environment name either change the `environments` or `dbg` options.
+
+The query object is maintained in a `cache` and will be returned on subsequenct calls which is typically desirable, if you need a fresh query `delete nenv.cache`.
 
 ### env([value])
 
