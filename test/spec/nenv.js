@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-  , nenv = require('../../');
+  , nenv = require('../../lib');
 
 function defaults(env) {
   expect(env).to.be.a('function');
