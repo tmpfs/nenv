@@ -58,7 +58,7 @@ describe('nenv: ', function() {
 
     // create a new env with different environments
     // bypassing the cache
-    var modenv = nenv(['deploy']);
+    var modenv = nenv({available: ['deploy']});
     expect(modenv).to.not.equal(env);
     expect(modenv.DEPLOY).to.eql('deploy');
     expect(modenv.deploy).to.eql(false);
@@ -77,7 +77,7 @@ describe('nenv: ', function() {
   it('should use available array list', function(done) {
     // add undefined to trigger code path
     var list = nenv.defaults.slice(0).concat('live', undefined);
-    var env = nenv(list);
+    var env = nenv({available: list});
     defaults(env);
     expect(env.LIVE).to.eql('live');
     expect(env(env.LIVE)).to.eql(env.LIVE);
@@ -86,7 +86,7 @@ describe('nenv: ', function() {
   });
 
   it('should use available object', function(done) {
-    var env = nenv({test: 'test'});
+    var env = nenv({available: {test: 'test'}});
     expect(env.TEST).to.be.a('string');
     expect(env.DEVEL).to.eql(undefined);
     expect(env.keys.length).to.eql(1);
@@ -97,7 +97,7 @@ describe('nenv: ', function() {
 
   it('should use alias list', function(done) {
     var env = nenv(
-      {test: ['test', 't'], live: 'live', ignored: null, truthy: true});
+      {available: {test: ['test', 't'], live: 'live', ignored: null, truthy: true}});
     expect(env.TEST).to.be.a('string');
     expect(env.LIVE).to.be.a('string');
     expect(env.IGNORED).to.eql(undefined);
